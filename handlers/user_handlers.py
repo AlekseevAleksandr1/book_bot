@@ -79,7 +79,7 @@ async def open_book(callback: CallbackQuery, state: FSMContext):
         users_dp[callback.from_user.id]['current_author'] = author_name[0]
         users_dp[callback.from_user.id]['cuurent_title'] = author_name[1]
         await callback.message.edit_text(text=text, reply_markup=create_pagination_keyboard('backward',
-                                                                       f'{users_dp[callback.from_user.id]['page']}/{len(book)}',
+                                                                       f'{users_dp[callback.from_user.id]["page"]}/{len(book)}',
                                                                        'forward'))
     except Exception as e:
         print(f"Ошибка: {e}")
